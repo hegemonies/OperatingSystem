@@ -13,7 +13,7 @@ if [[ $FILEcheck = '-f' ]]; then
 	
 	if [[ $COMPIL = '-c' ]]; then
 		gcc -Wall $FILE
-		if [[ $RUN = '-r' && -f 'a.out']]; then
+		if [[ $RUN = '-r' && -f 'a.out' ]]; then
 			./a.out
 		fi
 	fi
