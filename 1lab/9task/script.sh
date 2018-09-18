@@ -6,10 +6,14 @@ action=""
 
 while [[ -n $1 ]]; do
 	arg=$1
-	echo "Arg = "$arg
 	if [[ $arg = "-m" ]]; then
-		mask=$mask" "$2
 		shift
+		arg=$1
+		while [[ $arg != "cp" && $arg != "rm" && $arg != "mv" && $arg != "-d" && $arg != "-m" && -n $arg ]]; do
+			mask=$mask" "$1
+			shift
+			arg=$1
+		done
 	fi
 	if [[ $arg = "-d" ]]; then
 		dest=$2
@@ -21,12 +25,10 @@ while [[ -n $1 ]]; do
 	shift
 done
 
-echo "Action = "$action
-echo "Dest = "$dest
-echo "Mask = "$mask
-
 if [[ $arg = "rm" ]]; then
+	echo $action $mask
 	$action $mask
 else
+	echo $action $mask $dest
 	$action $mask $dest
 fi
