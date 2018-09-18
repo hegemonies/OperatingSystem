@@ -1,34 +1,46 @@
 #!/bin/bash
 
-mask=""
-dest=""
-action=""
-
-while [[ -n $1 ]]; do
-	arg=$1
-	if [[ $arg = "-m" ]]; then
-		shift
-		arg=$1
-		while [[ $arg != "cp" && $arg != "rm" && $arg != "mv" && $arg != "-d" && $arg != "-m" && -n $arg ]]; do
-			mask=$mask" "$1
-			shift
-			arg=$1
-		done
-	fi
-	if [[ $arg = "-d" ]]; then
-		dest=$2
-		shift
-	fi
-	if [[ $arg = "cp" || $arg = "rm" || $arg = "mv" ]]; then
-		action=$arg
-	fi
-	shift
-done
-
-if [[ $arg = "rm" ]]; then
-	echo $action $mask
-	$action $mask
-else
-	echo $action $mask $dest
-	$action $mask $dest
+if [[ $# < 1 ]]; then
+	echo "Нет опций. ЕГГОГ"
+	exit 1
 fi
+
+while getopts m:c:n: opt ; do
+	case $opt in
+		m) 
+			let "index = $OPTIND - 1"
+			let "arg = $"
+			echo $arg
+			mask=""
+			while [[ -n $arg ]]; do
+				mask=$mask" "$arg
+				# echo $mask
+				shift
+			done
+
+			if [[ -e $mask ]]; then
+				rm $mask
+			fi
+		;;
+		c)
+			if [[ -n $OPTARG ]]; then
+				mask=$OPTARG
+			fi
+
+			if [[ -e $mask ]]; then
+				read -r -p "Напишите путь куда копировать: " copyTo
+				cp $mask $copyTo
+			fi
+		;;
+		n)
+			if [[ -n $OPTARG ]]; then
+				mask=$OPTARG
+			fi
+
+			if [[ -e $mask ]]; then
+				read -r -p "Напишите новое имя файла: " copyTo
+				mv $mask $copyTo
+			fi
+		;;
+	esac
+done
