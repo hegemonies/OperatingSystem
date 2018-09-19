@@ -8,15 +8,9 @@ fi
 while getopts m:c:n: opt ; do
 	case $opt in
 		m) 
-			let "index = $OPTIND - 1"
-			let "arg = $"
-			echo $arg
-			mask=""
-			while [[ -n $arg ]]; do
-				mask=$mask" "$arg
-				# echo $mask
-				shift
-			done
+			if [[ -n $OPTARG ]]; then
+				mask=$OPTARG
+			fi
 
 			if [[ -e $mask ]]; then
 				rm $mask
