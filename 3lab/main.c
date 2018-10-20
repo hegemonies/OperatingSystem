@@ -3,7 +3,6 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <string.h>
-#include "hpctimer.h"
 
 static int stlen;
 static int printNeed;
@@ -77,8 +76,8 @@ void quicksort(int *arr, int lo, int hi)
 {
     // printf("последовательный алго\n");
     if (lo < hi) {
-        // int p = partition(arr, lo, hi);
-        int p = partition_(arr, lo, hi, lo + (hi - lo) / 2);
+        int p = partition(arr, lo, hi);
+        // int p = partition_(arr, lo, hi, lo + (hi - lo) / 2);
         // int p = arr[(lo + hi) / 2];
         if (printNeed) {
             // printf("p = %d\n", p);
@@ -174,9 +173,10 @@ int main(int argc, char const *argv[])
         }
     }
 
-    printf("Valid\n");
-    printf("Elapsed time: %f sec\n", t);
-    printf("Count of threads = %d\n", count_of_threads);
+    // printf("Valid\n");
+    // printf("Elapsed time: %f sec\n", t);
+    // printf("Count of threads = %d\n", count_of_threads);
+    printf("%d %f\n", threshold, t);
 
     pthread_mutex_destroy(&mutex);
 
