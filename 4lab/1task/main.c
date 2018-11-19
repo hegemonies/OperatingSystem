@@ -24,19 +24,28 @@ int main(void) {
     }
 
     if (pid == 0) {
-        char buffer[2500];
-
-        long int n = read(filedes[0], buffer, 2500);
-        printf("[%d] n = %ld\n", pid, n);
-
+        char buffer;
         int fd = open("passwds", O_CREAT | O_WRONLY);
 
         if (fd < 0) {
-            printf("Error open ~/passwds (%d)", errno);
+            printf("Error open passwds (%d)", errno);
             exit(1);
         }
 
-        write(fd, buffer, n);
+        long int n;
+        while ((n = read(filedes[0], &buffer, 1)) > 0) {
+            if (buffer == 26) {
+                break;
+            } else if (buffer == 'b') {
+                buffer = 'n';
+            } else if (buffer == 'i') {
+                buffer = 'a';
+            } else if (buffer == 'n') {
+                buffer = 'b';
+            }
+            write(fd, &buffer, 1);
+        }
+        // printf("[%d] n = %ld\n", pid, n);
 
         close(fd);
 
@@ -55,6 +64,10 @@ int main(void) {
         printf("[%d] n = %ld\n", pid, n);
 
         write(filedes[1], buffer, n);
+
+        char end = 26;
+
+        write(filedes[1], &end, 1);
 
         close(fd);
 
