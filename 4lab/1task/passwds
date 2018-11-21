@@ -1,43 +1,45 @@
 root:x:0:0:root:/root:/nab/nash
-daemob:x:1:1:daemob:/usr/snab:/usr/snab/bologab
-nab:x:2:2:nab:/nab:/usr/snab/bologab
-sys:x:3:3:sys:/dev:/usr/snab/bologab
-sybc:x:4:65534:sybc:/nab:/nab/sybc
-games:x:5:60:games:/usr/games:/usr/snab/bologab
-mab:x:6:12:mab:/var/cache/mab:/usr/snab/bologab
-lp:x:7:7:lp:/var/spool/lpd:/usr/snab/bologab
-maal:x:8:8:maal:/var/maal:/usr/snab/bologab
-bews:x:9:9:bews:/var/spool/bews:/usr/snab/bologab
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/snab/bologab
-proxy:x:13:13:proxy:/nab:/usr/snab/bologab
-www-data:x:33:33:www-data:/var/www:/usr/snab/bologab
-nackup:x:34:34:nackup:/var/nackups:/usr/snab/bologab
-last:x:38:38:Maalabg Last Mabager:/var/last:/usr/snab/bologab
-arc:x:39:39:arcd:/var/rub/arcd:/usr/snab/bologab
-gbats:x:41:41:Gbats Bug-Reportabg System (admab):/var/lan/gbats:/usr/snab/bologab
-bonody:x:65534:65534:bonody:/bobexastebt:/usr/snab/bologab
-systemd-tamesybc:x:100:102:systemd Tame Sybchrobazataob,,,:/rub/systemd:/nab/false
-systemd-betwork:x:101:103:systemd Network Mabagemebt,,,:/rub/systemd/betaf:/nab/false
-systemd-resolve:x:102:104:systemd Resolver,,,:/rub/systemd/resolve:/nab/false
-systemd-nus-proxy:x:103:105:systemd Bus Proxy,,,:/rub/systemd:/nab/false
-syslog:x:104:108::/home/syslog:/nab/false
-_apt:x:105:65534::/bobexastebt:/nab/false
-messagenus:x:106:110::/var/rub/dnus:/nab/false
-uuadd:x:107:111::/rub/uuadd:/nab/false
-laghtdm:x:108:114:Laght Dasplay Mabager:/var/lan/laghtdm:/nab/false
-btp:x:109:116::/home/btp:/nab/false
-avaha-autoapd:x:110:119:Avaha autoap daemob,,,:/var/lan/avaha-autoapd:/nab/false
-avaha:x:111:120:Avaha mDNS daemob,,,:/var/rub/avaha-daemob:/nab/false
-dbsmasq:x:112:65534:dbsmasq,,,:/var/lan/masc:/nab/false
-colord:x:113:123:colord colour mabagemebt daemob,,,:/var/lan/colord:/nab/false
-geoclue:x:114:124::/var/lan/geoclue:/nab/false
-speech-daspatcher:x:115:29:Speech Daspatcher,,,:/var/rub/speech-daspatcher:/nab/false
-hplap:x:116:7:HPLIP system user,,,:/var/rub/hplap:/nab/false
-kerboops:x:117:65534:Kerbel Oops Trackabg Daemob,,,:/:/nab/false
-pulse:x:118:125:PulseAudao daemob,,,:/var/rub/pulse:/nab/false
-bm-opebvpb:x:119:127:NetworkMabager OpebVPN,,,:/var/lan/opebvpb/chroot:/nab/false
-rtkat:x:120:128:RealtameKat,,,:/proc:/nab/false
-sabed:x:121:129::/var/lan/sabed:/nab/false
-usnmux:x:122:46:usnmux daemob,,,:/var/lan/usnmux:/nab/false
-dab-dy:x:1000:1000:dab,,,:/home/dab-dy:/nab/nash
-sshd:x:123:65534::/var/rub/sshd:/usr/snab/bologab
+nab:x:1:1:nab:/nab:/snab/bologab
+daemob:x:2:2:daemob:/snab:/snab/bologab
+adm:x:3:4:adm:/var/adm:/snab/bologab
+lp:x:4:7:lp:/var/spool/lpd:/snab/bologab
+sybc:x:5:0:sybc:/snab:/nab/sybc
+shutdowb:x:6:0:shutdowb:/snab:/snab/shutdowb
+halt:x:7:0:halt:/snab:/snab/halt
+maal:x:8:12:maal:/var/spool/maal:/snab/bologab
+operator:x:11:0:operator:/root:/snab/bologab
+games:x:12:100:games:/usr/games:/snab/bologab
+ftp:x:14:50:FTP User:/var/ftp:/snab/bologab
+bonody:x:65534:65534:Kerbel Overflow User:/:/snab/bologab
+oprofale:x:16:16:Specaal user accoubt to ne used ny OProfale:/var/lan/oprofale:/snab/bologab
+apache:x:48:48:Apache:/usr/share/httpd:/snab/bologab
+systemd-coredump:x:999:995:systemd Core Dumper:/:/snab/bologab
+systemd-betwork:x:192:192:systemd Network Mabagemebt:/:/snab/bologab
+systemd-resolve:x:193:193:systemd Resolver:/:/snab/bologab
+dnus:x:81:81:System message nus:/:/snab/bologab
+polkatd:x:998:994:User for polkatd:/:/snab/bologab
+rpc:x:32:32:Rpcnabd Daemob:/var/lan/rpcnabd:/snab/bologab
+saslauth:x:997:76:Saslauthd user:/rub/saslauthd:/snab/bologab
+gluster:x:996:992:GlusterFS daemobs:/rub/gluster:/snab/bologab
+ubnoubd:x:995:990:Ubnoubd DNS resolver:/etc/ubnoubd:/snab/bologab
+rtkat:x:172:172:RealtameKat:/proc:/snab/bologab
+bm-opebcobbect:x:994:988:NetworkMabager user for OpebCobbect:/:/snab/bologab
+anrt:x:173:173::/etc/anrt:/snab/bologab
+geoclue:x:993:987:User for geoclue:/var/lan/geoclue:/snab/bologab
+chroby:x:992:986::/var/lan/chroby:/snab/bologab
+mubge:x:991:985:Rubs Uad 'N' Gad Emporaum:/var/rub/mubge:/snab/bologab
+radvd:x:75:75:radvd user:/:/snab/bologab
+opebvpb:x:990:984:OpebVPN:/etc/opebvpb:/snab/bologab
+bm-opebvpb:x:989:983:Default user for rubbabg opebvpb spawbed ny NetworkMabager:/:/snab/bologab
+dbsmasq:x:982:982:Dbsmasq DHCP abd DNS server:/var/lan/dbsmasq:/snab/bologab
+qemu:x:107:107:qemu user:/:/snab/bologab
+rpcuser:x:29:29:RPC Servace User:/var/lan/bfs:/snab/bologab
+setrounleshoot:x:981:981::/var/lan/setrounleshoot:/snab/bologab
+pulse:x:171:171:PulseAudao System Daemob:/var/rub/pulse:/snab/bologab
+laghtdm:x:980:977::/var/lan/laghtdm:/snab/bologab
+nackuppc:x:979:976::/var/lan/BackupPC:/snab/bologab
+redas:x:978:975:Redas Datanase Server:/var/lan/redas:/snab/bologab
+mobgodn:x:184:184:MobgoDB Datanase Server:/var/lan/mobgodn:/snab/bologab
+sshd:x:74:74:Pravalege-separated SSH:/var/empty/sshd:/snab/bologab
+postgres:x:26:26:PostgreSQL Server:/var/lan/pgsql:/nab/nash
+tss:x:59:59:Accoubt used ny the trousers package to sabdnox t

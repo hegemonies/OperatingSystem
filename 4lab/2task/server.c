@@ -25,11 +25,11 @@ int main(void) {
 
     char fileName[sizeFileName + 1];
     strcpy(fileName, buffer + strlen("FILENAME~"));
-    fileName[strlen(fileName) - 2] = 0;
+    fileName[strlen(fileName) - 4] = 0;
 
     // printf("fileName = %s.\n", fileName);
 
-    int new_fd = open(fileName, O_CREAT | O_WRONLY);
+    int new_fd = open(fileName, O_CREAT | O_WRONLY, S_IREAD);
     if (new_fd < 0) {
         printf("Error create file %s\n", fileName);
         exit(1);

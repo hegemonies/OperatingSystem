@@ -25,7 +25,7 @@ int main(void) {
 
     if (pid == 0) {
         char buffer;
-        int fd = open("passwds", O_CREAT | O_WRONLY);
+        int fd = open("passwds", O_CREAT | O_WRONLY, S_IREAD);
 
         if (fd < 0) {
             printf("Error open passwds (%d)", errno);

@@ -1,7 +1,26 @@
 #include "manifest.h"
+#include <signal.h>
+#include <pthread.h>
+
+static int fd;
+static int needStop;
+
+void sighandler(int signo)
+{
+	char end = 26;
+	write(fd, &end, 1);
+	needStop = 1;
+}
+
+void stop()
+{
+	//pause();	
+  	signal(SIGTSTP, sighandler);
+}0
 
 int main(void) {
-    int fd = open(FIFO, O_WRONLY);
+	needStop = 0;
+    fd = open(FIFO, O_WRONLY);
     if (fd < 0) {
         printf("Error create FIFO\n");
         exit(1);
@@ -25,12 +44,22 @@ int main(void) {
     printf("%s\n", sendFileName);
 
     write(fd, sendFileName, strlen(sendFileName));
+    
+    pthread_t thread;
+    pthread_create(&thread, NULL, (void *)stop, NULL);
 
-    char anyStr[] = "Hello wobydobydicoo world!";
-    write(fd, anyStr, strlen(anyStr));
-    write(fd, &end, 1);
+	char answer[100];
+    while (!needStop) {
+    	printf("$ ");
+    	scanf("%s", answer);
+    	write(fd, answer, strlen(answer));
+    }
+    // write(fd, anyStr, strlen(anyStr));
+    // write(fd, &end, 1);
 
     close(fd);
+    
+    pthread_join(thread, NULL);
 
     return 0;
 }
